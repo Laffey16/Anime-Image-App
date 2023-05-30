@@ -1,0 +1,33 @@
+package com.example.animeapp.gelbooru
+
+data class Post(
+    val change: Int,
+    val created_at: String,
+    val creator_id: Int,
+    val directory: String,
+    val file_url: String,
+    val has_children: String,
+    val has_comments: String,
+    val has_notes: String,
+    val height: Int,
+    val id: Int,
+    val image: String,
+    val md5: String,
+    val owner: String,
+    val parent_id: Int,
+    val post_locked: Int,
+    val preview_height: Int,
+    val preview_url: String,
+    val preview_width: Int,
+    val rating: String,
+    val sample: Int,
+    val sample_height: Int,
+    val sample_url: String,
+    val sample_width: Int,
+    val score: Int,
+    val source: String,
+    val status: String,
+    val tags: String,
+    val title: String,
+    val width: Int
+)
