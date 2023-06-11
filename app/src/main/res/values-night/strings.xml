@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="DownLoadButton">downloadbutton</string>
+    <string name="app_name">AnimeApp</string>
+    <string name="refresh_button">Refresh Button</string>
+    <string name="anime_images">Anime images</string>
+    <string name="this_is_a_popup_window">This is a popup window.</string>
+    <string name="download_button">DownLoad Button</string>
 </resources>
