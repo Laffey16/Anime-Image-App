@@ -5,7 +5,7 @@
     android:id="@+id/rl_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradiant_list"
+    android:background="@color/design_default_color_background"
     tools:context=".MainActivity">
 
     <!--Loading Symbol-->
@@ -60,7 +60,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:adjustViewBounds="true"
-        android:clickable="true"
+        android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
         android:contentDescription="@string/anime_images"
         android:focusable="true"
         android:scaleType="fitXY"

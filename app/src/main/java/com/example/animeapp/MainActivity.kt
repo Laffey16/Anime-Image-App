@@ -1,7 +1,7 @@
 package com.example.animeapp
 
 import android.Manifest
-import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -15,14 +15,20 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.bumptech.glide.Glide
 import com.example.animeapp.databinding.ActivityMainBinding
 import com.example.animeapp.requests.GelbooruSingleton
-import kotlinx.coroutines.*
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
 
 
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var drawable: Drawable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,25 +52,36 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun backgroundAnimation() {
-        val animationDrawable: AnimationDrawable = binding.rlLayout.background as AnimationDrawable
-
-        animationDrawable.apply {
-            setEnterFadeDuration(1000)
-            setExitFadeDuration(3000)
-            start()
-        }
-    }
+//    private fun backgroundAnimation() {
+//        val animationDrawable: AnimationDrawable = binding.rlLayout.background as AnimationDrawable
+//
+//        animationDrawable.apply {
+//            setEnterFadeDuration(1000)
+//            setExitFadeDuration(3000)
+//            start()
+//        }
+//    }
 
     override fun onResume() {
         super.onResume()
-        setFullscreen()
+        // setFullscreen()
+        if (this::drawable.isInitialized) {
+            binding.ivRandomAnime.setImageDrawable(drawable)
+        }
+
     }
+
+    override fun onPause() {
+        super.onPause()
+        drawable = binding.ivRandomAnime.drawable
+
+    }
+
 
     override fun onStart() {
         super.onStart()
 
-        backgroundAnimation()
+        //backgroundAnimation()
         makeApiRequest()
 
         //Pressing refresh button
